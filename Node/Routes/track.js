@@ -12,7 +12,7 @@ const auth = require("./auth")
 
 
 
-router.get('/:id',async (req,res)=>{
+router.get('/:id',auth.required,async (req,res)=>{
 
 const id = req.params.id;
 
@@ -28,7 +28,7 @@ else return res.send("User doesn't exist!");
 });
 
 
-router.post('/start/:id',async(req,res)=>{
+router.post('/start/:id',auth.required,async(req,res)=>{
 
     const newId = uuidv4()
     
@@ -52,7 +52,7 @@ return res.send('Error!');
 
 
 
-router.post("/end/:id",async (req,res)=>{
+router.post("/end/:id",auth.required,async (req,res)=>{
 Uid = req.params.id;
 const Sid = req.body.Sid;
     const check = await Sleepx.find({Sid});
@@ -71,7 +71,7 @@ const Sid = req.body.Sid;
 })
 
 
-router.post("/del/:sid",async(req,res)=>{
+router.post("/del/:sid",auth.required,async(req,res)=>{
 
     Sleepx.deleteOne({ Sid: req.params.sid  }).then(function(){
         res.send("Data Deleted!");
