@@ -5,7 +5,7 @@
 This sleep tracker application can be used to track the timings of sleep.Which will further helps in analysis of sleep patterns and can give various insights
 if one uses the data for creating charts!
 
-### Tech Stack : MERN
+### Tech Stack : Express.js,Node.js,Mongodb
 
 ### The Schema : 
 
